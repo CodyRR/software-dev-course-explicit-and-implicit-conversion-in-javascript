@@ -19,14 +19,31 @@ Use console.log() to clearly show the before-and-after type conversions.
 */
 
 
-let result = "5" - 2;
-console.log("The result is: " + result);
+let result = "5" - 2; // result becomes a number due to the (-) expression. 
+console.log("The result is: " + result); // result is used as a string with the (+) expression. No change needed.
 
-let isValid = Boolean("false");
-if (isValid) {
+let isValid = Boolean(Number("false")); // Number("false") returns a blank string: ""  Blank Strings that are converted to Boolean results in false
+if (isValid) { // isValid is made false
     console.log("This is valid!");
 }
 
 let age = "25";
-let totalAge = age + 5;
+let totalAge = Number(age) + 5; // Number(age) returns a number instead of a string. This allows number + number to work.
 console.log("Total Age: " + totalAge);
+
+// Implicit type conversion
+
+let input = null;
+console.log(input);
+
+if(input){  // This converts input to Boolean
+    console.log("This is valid");
+} else {
+    console.log("This is invalid");
+}
+
+// Explicit type conversion
+
+let money = "10.00";
+console.log(money);
+console.log("We need to have " + parseInt(money) + " Dollars.");
